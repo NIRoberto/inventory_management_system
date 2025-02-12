@@ -8,9 +8,6 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 
-// Type for each menu item
-
-// Define the dropdown menus with an array of objects
 const menus = [
   {
     icon: <BellOutlined style={{ fontSize: "20px", color: "#1890ff" }} />,
@@ -66,14 +63,17 @@ const HeaderIcons = () => {
   );
 };
 
-// Header Component with Collapsing Sidebar Control
 const HeaderComponent: React.FC<{
   collapsed: boolean;
   setCollapsed: (collapsed: boolean) => void;
 }> = ({ collapsed, setCollapsed }) => {
   return (
-    <Layout.Header className="shadow flex justify-between border bg-white  px-8 ">
-      {/* Collapsible Sidebar Switch */}
+    <Layout.Header
+      style={{
+        backgroundColor: "#fff",
+      }}
+      className="shadow flex justify-between border !bg-white  px-8 "
+    >
       <div className="px-4">
         <Tooltip title={collapsed ? "Expand Sidebar" : "Collapse Sidebar"}>
           {collapsed ? (
@@ -84,7 +84,6 @@ const HeaderComponent: React.FC<{
         </Tooltip>
       </div>
 
-      {/* Header Icons Section */}
       <HeaderIcons />
     </Layout.Header>
   );

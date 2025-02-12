@@ -49,16 +49,13 @@ const Navbar = () => {
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
-      {/* Navigation Bar */}
       <Navbar />
 
-      {/* Main Content */}
       <div className="max-w-7xl mx-auto py-10 flex-grow">
         <h1 className="text-4xl font-semibold text-center text-gray-800 mb-8">
           Inventory Management System
         </h1>
 
-        {/* Four Sections */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <SectionCard
             title="Overview"
@@ -89,7 +86,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Footer */}
       <footer className="bg-dark text-white py-6 text-center">
         <p className="text-sm">
           © {new Date().getFullYear()} XYZ Organization. All rights reserved.
@@ -123,7 +119,7 @@ const SectionCard = ({
   icon: React.ReactNode;
 }) => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+    <div className="bg-white p-6 justify-between flex flex-col rounded-lg shadow-md hover:shadow-xl transition-shadow">
       {icon}
       <h2 className="text-2xl font-semibold text-gray-700">{title}</h2>
       <p className="text-gray-500 mt-2">{description}</p>

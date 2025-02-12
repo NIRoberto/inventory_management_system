@@ -27,7 +27,7 @@ const LoginComp = () => {
 
   // Form submission handler
   const handleSubmit = (values: { email: string; password: string }) => {
-    if (values.email === "user@gmail.com" && values.password === "123456") {
+    if (values.email != "" && values.password != "") {
       router.push("/dashboard");
     } else {
       alert("Invalid email or password.");

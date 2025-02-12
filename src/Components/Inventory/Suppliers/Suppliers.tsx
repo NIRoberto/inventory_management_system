@@ -33,11 +33,11 @@ const columns: ColumnsType<SupplierData> = [
     dataIndex: "email",
     key: "email",
   },
-  {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
-  },
+  // {
+  //   title: "Address",
+  //   dataIndex: "address",
+  //   key: "address",
+  // },
   {
     title: "Products Supplied",
     dataIndex: "productsSupplied",
@@ -52,17 +52,18 @@ const columns: ColumnsType<SupplierData> = [
   {
     title: "Actions",
     key: "actions",
-    render: (_, record) => (
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
+    render: (text: string, record: any) => (
       <Space size="middle">
         <Button
           icon={<EditOutlined />}
-          type="link"
-          onClick={() => handleEditSupplier(record)}
+          className="!bg-primary"
+          type="primary"
+          // onClick={() => handleEdit(record)}
         />
         <Button
           icon={<DeleteOutlined />}
-          type="link"
-          onClick={() => handleDeleteSupplier(record.id)}
+          // onClick={() => handleDelete(record.id)}
         />
       </Space>
     ),
@@ -70,25 +71,25 @@ const columns: ColumnsType<SupplierData> = [
 ];
 
 // Handle edit action
-const handleEditSupplier = (supplier: SupplierData) => {
-  console.log("Editing supplier: ", supplier);
-  // Open modal to edit supplier data (implement modal logic)
-};
+// const handleEditSupplier = (supplier: SupplierData) => {
+//   console.log("Editing supplier: ", supplier);
+//   // Open modal to edit supplier data (implement modal logic)
+// };
 
 // Handle delete action
-const handleDeleteSupplier = (id: string) => {
-  Modal.confirm({
-    title: "Are you sure you want to delete this supplier?",
-    content: `Supplier ID: ${id}`,
-    onOk: () => deleteSupplier(id),
-  });
-};
+// const handleDeleteSupplier = (id: string) => {
+//   Modal.confirm({
+//     title: "Are you sure you want to delete this supplier?",
+//     content: `Supplier ID: ${id}`,
+//     onOk: () => deleteSupplier(id),
+//   });
+// };
 
 // Delete supplier from the list
-const deleteSupplier = (id: string) => {
-  console.log("Deleted supplier with ID: ", id);
-  // Logic to delete supplier (e.g., update state or make an API call)
-};
+// const deleteSupplier = (id: string) => {
+//   console.log("Deleted supplier with ID: ", id);
+//   // Logic to delete supplier (e.g., update state or make an API call)
+// };
 
 // Suppliers Management Component
 const SuppliersComp = () => {
@@ -107,25 +108,30 @@ const SuppliersComp = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-semibold mb-4">Suppliers Management</h2>
+      <div className="flex justify-between">
+        <h2 className="text-2xl font-semibold mb-4">Suppliers Management</h2>
+
+        <Button
+          type="primary"
+          className="!bg-primary"
+          size="large"
+          onClick={() => setIsModalVisible(true)}
+        >
+          Add Supplier
+        </Button>
+      </div>
+
       <Table
         columns={columns}
         dataSource={suppliersData}
         pagination={false}
         rowKey="id"
       />
-      <Button
-        type="primary"
-        className="mt-4"
-        onClick={() => setIsModalVisible(true)}
-      >
-        Add Supplier
-      </Button>
 
       {/* Modal for Adding/Editing a Supplier */}
       <Modal
         title={selectedSupplier ? "Edit Supplier" : "Add Supplier"}
-        visible={isModalVisible}
+        open={isModalVisible}
         onCancel={() => setIsModalVisible(false)}
         footer={null}
       >

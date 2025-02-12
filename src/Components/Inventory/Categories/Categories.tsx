@@ -85,7 +85,8 @@ const CategoriesComp = () => {
         <div className="flex  gap-2">
           <Button
             icon={<EditOutlined />}
-            className="!mx-2"
+            type="primary"
+            className="!bg-primary "
             onClick={() => {
               setEditingCategory(record);
               form.setFieldsValue(record);
@@ -98,7 +99,7 @@ const CategoriesComp = () => {
             okText="Yes"
             cancelText="No"
           >
-            <Button danger icon={<DeleteOutlined />} />
+            <Button className="!text-red-800" danger icon={<DeleteOutlined />} />
           </Popconfirm>
         </div>
       ),
@@ -108,9 +109,11 @@ const CategoriesComp = () => {
   return (
     <div className="p-6 bg-white shadow-md rounded-lg">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-bold">Categories Management</h2>
+        <h2 className="text-2xl font-bold">Categories Management</h2>
         <Button
           type="primary"
+          className="!bg-primary"
+          size="large"
           icon={<PlusOutlined />}
           onClick={() => {
             setEditingCategory(null);
@@ -149,7 +152,7 @@ const CategoriesComp = () => {
             name="name"
             rules={[{ required: true, message: "Please enter category name" }]}
           >
-            <Input placeholder="Enter category name" />
+            <Input size="large" placeholder="Enter category name" />
           </Form.Item>
 
           <Form.Item
@@ -157,16 +160,31 @@ const CategoriesComp = () => {
             name="description"
             rules={[{ required: true, message: "Please enter description" }]}
           >
-            <Input.TextArea rows={3} placeholder="Enter category description" />
+            <Input.TextArea
+              size="large"
+              rows={3}
+              placeholder="Enter category description"
+            />
           </Form.Item>
 
-          <Form.Item label="Image URL" name="image">
-            <Input placeholder="Enter image URL" />
-          </Form.Item>
+          {/* <Form.Item label="Image URL" name="image">
+            <Input size="large" type="file" placeholder="Enter image URL" />
+          </Form.Item> */}
 
           <div className="flex justify-end gap-2">
-            <Button onClick={() => setIsModalOpen(false)}>Cancel</Button>
-            <Button type="primary" htmlType="submit">
+            <Button
+              size="large"
+              className="!bg-red-800"
+              onClick={() => setIsModalOpen(false)}
+            >
+              Cancel
+            </Button>
+            <Button
+              type="primary"
+              className="!bg-primary"
+              size="large"
+              htmlType="submit"
+            >
               {editingCategory ? "Update" : "Add"}
             </Button>
           </div>

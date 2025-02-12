@@ -15,17 +15,21 @@ const { Sider } = Layout;
 
 // Dummy user data
 const user = {
-  roles: ["admin", "manager"],
+  roles: ["admin", "manager"], // User has multiple roles (admin and manager)
   permissions: [
-    "view_dashboard",
-    "manage_inventory",
-    "view_stock",
-    "manage_orders",
-    "view_suppliers",
-    "manage_categories",
-    "manage_returns",
-    "view_reports",
-    "view_history",
+    "view_dashboard", // Access to the dashboard
+    "manage_inventory", // Full access to inventory management
+    "view_stock", // Can view stock
+    "manage_orders", // Can manage orders
+    "view_suppliers", // Can view suppliers
+    "manage_categories", // Can manage categories
+    "manage_returns", // Can manage returns
+    "view_reports", // Can view reports
+    "view_history", // Can view history
+    "view_borrowings", // Can view borrowed items
+    "view_damage_reports", // Can view damage reports
+    "manage_users", // Can manage users (admin-only)
+    "view_logs", // Can view system logs (admin-only)
   ],
 };
 
@@ -79,8 +83,36 @@ const menuItems = [
         permission: "manage_returns",
         route: "/dashboard/inventory/returns",
       },
+      {
+        key: "borrowings",
+        label: "Borrowed Items",
+        icon: <AppstoreAddOutlined />,
+        permission: "view_borrowings",
+        route: "/dashboard/inventory/borrowings",
+      },
+      {
+        key: "damage-reports",
+        label: "Damage Reports",
+        icon: <AppstoreAddOutlined />,
+        permission: "view_damage_reports",
+        route: "/dashboard/inventory/damage-reports",
+      },
     ],
   },
+  {
+    key: "user-management",
+    label: "User Management",
+    icon: <AppstoreAddOutlined />,
+    permission: "manage_users",
+    route: "/dashboard/user-management",
+  },
+  // {
+  //   key: "logs",
+  //   label: "System Logs",
+  //   icon: <HistoryOutlined />,
+  //   permission: "view_logs",
+  //   route: "/dashboard/system-logs",
+  // },
   {
     key: "reports",
     label: "Reports",
@@ -203,10 +235,10 @@ const LayoutWithSidebar = ({ children }: { children: React.ReactNode }) => {
       </Sider>
 
       {/* Main Layout */}
-      <Layout className="bg-gray-100">
+      <Layout className="bg-gray-100 min-h-screen">
         <HeaderComponent collapsed={collapsed} setCollapsed={setCollapsed} />
         <div className="p-6">
-          <div className="bg-white rounded-lg p-6 shadow- shadow-gray-100">
+          <div className="bg-white min-h-[86vh] rounded-lg p-6 shadow- shadow-gray-100">
             {children}
           </div>
         </div>

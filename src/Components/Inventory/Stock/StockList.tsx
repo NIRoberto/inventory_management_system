@@ -14,6 +14,7 @@ import {
 } from "antd";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { stockData, StockItem } from "./data/stockData";
+import HeaderOfPage from "@/Components/Shared/HeaderOfPage";
 
 const StockComp = () => {
   const [data, setData] = useState(stockData);
@@ -58,7 +59,7 @@ const StockComp = () => {
       title: "Product Name",
       dataIndex: "name",
       key: "name",
-      render: (text: string) => <a>{text}</a>,
+      render: (text: string) => <span className="text-gray-800">{text}</span>,
     },
     {
       title: "Category",
@@ -75,7 +76,7 @@ const StockComp = () => {
       title: "Price",
       dataIndex: "price",
       key: "price",
-      render: (text: number) => `$${text.toFixed(2)}`,
+      render: (text: number) => `${text.toFixed(2)}`,
     },
     {
       title: "Stock Status",
@@ -96,6 +97,7 @@ const StockComp = () => {
         <Space size="middle">
           <Button
             icon={<EditOutlined />}
+            className="!bg-primary"
             type="primary"
             onClick={() => handleEdit(record)}
           />
@@ -116,16 +118,30 @@ const StockComp = () => {
 
   return (
     <div className="p-8">
-      <div className="mb-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Stock Management</h1>
-        <Input.Search
-          placeholder="Search stock..."
-          enterButton="Search"
-          onSearch={handleSearch}
-          onChange={(e) => setSearchText(e.target.value)}
-          style={{ width: 300 }}
-        />
-      </div>
+      <HeaderOfPage
+        title="Stock Management"
+        actions={
+          <div className="flex gap-4">
+            <Input.Search
+              placeholder="Search by product name or category"
+              onSearch={handleSearch}
+              style={{ width: 300 }}
+              className="flex gap-2"
+              size="large"
+            />
+            <div>
+              <Button
+                type="primary"
+                className="!bg-primary "
+                size="large"
+                onClick={() => setIsEditing(true)}
+              >
+                Add New Item
+              </Button>
+            </div>
+          </div>
+        }
+      />
       <Table
         columns={columns}
         dataSource={filteredData}

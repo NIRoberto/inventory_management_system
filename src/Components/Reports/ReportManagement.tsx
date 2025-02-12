@@ -105,7 +105,7 @@ const ReportManagement: React.FC = () => {
         columns={columns}
         dataSource={reportData}
         rowKey="reportId"
-        className="border border-gray-300"
+        className=" border-gray-300"
       />
     </div>
   );

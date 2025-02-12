@@ -24,7 +24,7 @@ const ordersData: Order[] = [
     customerName: "Alice Niyonzima",
     product: "Trainee Laptop",
     quantity: 3,
-    totalAmount: 1500, // USD
+    totalAmount: 1500, 
     orderDate: "2025-02-10",
     status: "Pending",
   },
@@ -83,7 +83,7 @@ const columns: ColumnsType<Order> = [
     key: "quantity",
   },
   {
-    title: "Total Amount (USD)",
+    title: "Total Amount ",
     dataIndex: "totalAmount",
     key: "totalAmount",
   },

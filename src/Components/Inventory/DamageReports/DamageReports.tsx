@@ -122,7 +122,22 @@ const DamageReports = () => {
 
   return (
     <div style={{ padding: 24 }}>
-      <h2>Damage Reports</h2>
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-2xl font-bold">Damage Reports</h2>
+        <Button
+          type="primary"
+          className="!bg-primary"
+          size="large"
+          //   icon={<PlusOutlined />}
+          onClick={() => {
+            // setEditingCategory(null);
+            // form.resetFields();
+            // setIsModalOpen(true);
+          }}
+        >
+          Record Damage Report
+        </Button>
+      </div>
 
       {loading ? (
         <Spin tip="Loading reports..." />
@@ -133,12 +148,14 @@ const DamageReports = () => {
           <div style={{ marginBottom: "20px" }}>
             <DatePicker
               placeholder="Filter by Date"
+              size="large"
               onChange={handleDateFilterChange}
               style={{ marginRight: 16 }}
             />
             <Select
               placeholder="Filter by Status"
               onChange={handleStatusFilterChange}
+              size="large"
               style={{ width: 200 }}
             >
               <Select.Option value="Pending">Pending</Select.Option>
@@ -148,6 +165,8 @@ const DamageReports = () => {
             <Button
               type="primary"
               onClick={fetchReports}
+              className="!bg-primary"
+              size="large"
               style={{ marginLeft: 16 }}
             >
               Refresh Reports

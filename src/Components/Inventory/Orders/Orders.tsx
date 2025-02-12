@@ -162,20 +162,24 @@ const deleteOrder = (orderId: string) => {
 const OrdersComp = () => {
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-semibold mb-4">Orders Management</h2>
+      <div className="flex justify-between">
+        <h2 className="text-2xl font-semibold mb-4">Orders Management</h2>
+        <Button
+          type="primary"
+          className="!bg-primary"
+          size="large"
+          // onClick={() => setIsModalVisible(true)}
+        >
+          Add New Order
+        </Button>
+      </div>
       <Table
         columns={columns}
         dataSource={ordersData}
         pagination={false}
         rowKey="key"
       />
-      <Button
-        type="primary"
-        className="mt-4"
-        onClick={() => console.log("Add new order")}
-      >
-        Add New Order
-      </Button>
+
     </div>
   );
 };

@@ -122,20 +122,24 @@ const ReturnsComp = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-semibold mb-4">Returns Management</h2>
+      <div className="flex justify-between">
+        <h2 className="text-2xl font-semibold mb-4">Returns Management</h2>
+        <Button
+          type="primary"
+          className="!bg-primary"
+          size="large"
+          onClick={() => setIsModalVisible(true)}
+        >
+          Process Return
+        </Button>
+      </div>
+
       <Table
         columns={columns}
         dataSource={returnsData}
         pagination={false}
         rowKey="id"
       />
-      <Button
-        type="primary"
-        className="mt-4"
-        onClick={() => setIsModalVisible(true)}
-      >
-        Process Return
-      </Button>
 
       {/* Modal for processing a return */}
       <Modal

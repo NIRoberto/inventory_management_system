@@ -115,7 +115,7 @@ const HistoryManagement: React.FC = () => {
         columns={columns}
         dataSource={historyData}
         rowKey="historyId"
-        className="border border-gray-300"
+        className=" border-gray-300"
       />
     </div>
   );

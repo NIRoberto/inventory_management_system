@@ -106,13 +106,13 @@ const menuItems = [
     permission: "manage_users",
     route: "/dashboard/user-management",
   },
-  {
-    key: "logs",
-    label: "System Logs",
-    icon: <HistoryOutlined />,
-    permission: "view_logs",
-    route: "/dashboard/system-logs",
-  },
+  // {
+  //   key: "logs",
+  //   label: "System Logs",
+  //   icon: <HistoryOutlined />,
+  //   permission: "view_logs",
+  //   route: "/dashboard/system-logs",
+  // },
   {
     key: "reports",
     label: "Reports",

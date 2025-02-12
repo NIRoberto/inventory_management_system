@@ -139,18 +139,18 @@ const UsersManagement: React.FC = () => {
 
   return (
     <div>
-      <h1>Users Management</h1>
+      <div className="flex justify-between">
+        <h2 className="text-2xl font-semibold mb-4">Users Management</h2>
+        <Button
+          type="primary"
+          className="!bg-primary"
+          size="large"
+          // onClick={() => setIsModalVisible(true)}
+        >
+          Add User
+        </Button>
+      </div>
 
-      {/* Button to open the modal to add a new user */}
-      <Button
-        type="primary"
-        onClick={() => setIsModalVisible(true)}
-        style={{ marginBottom: 16 }}
-      >
-        Add New User
-      </Button>
-
-      {/* Ant Design Table */}
       <Table
         columns={columns}
         dataSource={users}

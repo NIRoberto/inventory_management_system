@@ -53,7 +53,7 @@ const BorrowingsCom: React.FC = () => {
     try {
       // Simulating data loading with dummy data
       setBorrowings(dummyData);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
       setError("Error fetching borrowings");
       message.error("Failed to load borrowings.");
@@ -107,7 +107,18 @@ const BorrowingsCom: React.FC = () => {
 
   return (
     <div style={{ padding: 24 }}>
-      <h2>Borrowing Records</h2>
+      <div className="flex justify-between">
+        <h2 className="text-2xl font-semibold mb-4">Borrowings List</h2>
+
+        <Button
+          type="primary"
+          className="!bg-primary"
+          size="large"
+          //   onClick={() => setIsModalVisible(true)}
+        >
+          Refresh Borrowings
+        </Button>
+      </div>
 
       {loading ? (
         <Spin tip="Loading borrowings..." />
@@ -115,13 +126,6 @@ const BorrowingsCom: React.FC = () => {
         <div style={{ color: "red" }}>{error}</div>
       ) : (
         <>
-          <Button
-            type="primary"
-            onClick={fetchBorrowings}
-            style={{ marginBottom: 16 }}
-          >
-            Refresh Borrowings
-          </Button>
           <Table
             dataSource={borrowings}
             columns={columns}

@@ -36,7 +36,7 @@ const LoginComp = () => {
 
   return (
     <div className="min-h-screen  flex items-center justify-center h-full w-full bg-gray-100">
-      <div className="bg-white p-6 rounded-lg shadow-lg   border-2 ">
+      <div className="bg-white p-8 rounded-xl shadow-lg border-2 w-full max-w-md mx-auto">
         <div className="flex justify-center mb-6">
           <Image
             src="/logo.png"

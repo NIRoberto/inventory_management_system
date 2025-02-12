@@ -141,38 +141,43 @@ const SuppliersComp = () => {
           onFinish={handleSubmit}
         >
           <Form.Item label="Supplier ID" name="id" required>
-            <Input disabled={!selectedSupplier} />
+            <Input size="large" disabled={!selectedSupplier} />
           </Form.Item>
 
           <Form.Item label="Company Name" name="name" required>
-            <Input />
+            <Input size="large" />
           </Form.Item>
 
           <Form.Item label="Contact Person" name="contactPerson" required>
-            <Input />
+            <Input size="large" />
           </Form.Item>
 
           <Form.Item label="Phone" name="phone" required>
-            <Input />
+            <Input size="large" />
           </Form.Item>
 
           <Form.Item label="Email" name="email" required>
-            <Input />
+            <Input size="large" />
           </Form.Item>
 
           <Form.Item label="Address" name="address" required>
-            <Input />
+            <Input size="large" />
           </Form.Item>
 
           <Form.Item label="Products Supplied" name="productsSupplied" required>
-            <Input />
+            <Input size="large" />
           </Form.Item>
 
           <Form.Item label="Last Order Date" name="lastOrderDate" required>
-            <Input />
+            <Input size="large" />
           </Form.Item>
 
-          <Button type="primary" htmlType="submit">
+          <Button
+            type="primary"
+            size="large"
+            className="!bg-primary w-full"
+            htmlType="submit"
+          >
             Submit
           </Button>
         </Form>
